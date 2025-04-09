@@ -1,0 +1,23 @@
+{
+  "name": "dw3",
+  "version": "1.0.0",
+  "description": "Requisições http",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedrinnhoUtumi/DW3.git"
+  },
+  "author": "Pedro Utumi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedrinnhoUtumi/DW3/issues"
+  },
+  "homepage": "https://github.com/PedrinnhoUtumi/DW3#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  }
+}
