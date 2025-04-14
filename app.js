@@ -1,10 +1,36 @@
 const express = require("express")
 const app = express()
 const porta = 8806
+const handlebars = require('express-handlebars')
 
+app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
+app.set('views', './views')
 
 app.get('/', (req, res) => {
-    res.send('Olá Mundo')
+    res.send(`  
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="theme-color" content="#FFAA00" />
+
+            <title>Informações do ISBN</title>
+        </head>
+        <body>
+            <h1 style='background-color: #FFAA00;'>Ola Mundo</h1>
+        </body>
+        </html>
+        `)
+})
+
+app.get('/formulario', (req, res) => {
+    res.render('formulario')
+})
+
+app.post('/cadastrarPostagem', (req, res) => {
+    res.send('mensagem recebida')
 })
 
 app.get('/isbn/:isbn', (req, res) => {
