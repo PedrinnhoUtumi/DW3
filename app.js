@@ -2,10 +2,14 @@ const express = require("express")
 const app = express()
 const porta = 8806
 const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 app.set('views', './views')
+
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
     res.send(`  
@@ -30,7 +34,10 @@ app.get('/formulario', (req, res) => {
 })
 
 app.post('/cadastrarPostagem', (req, res) => {
-    res.send('mensagem recebida')
+    // console.log(req.body.titulo)
+    // console.log(req.body.conteudo)
+    // res.send('mensagem recebida')
+    res.render('postagens', {titulo: req.body.titulo, conteudo: req.body.conteudo})
 })
 
 app.get('/isbn/:isbn', (req, res) => {
