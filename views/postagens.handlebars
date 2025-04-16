@@ -1,2 +1,16 @@
-<h1>{{titulo}}</h1>
-<h2>{{conteudo}}</h2>
+{{!-- <h1>{{titulo}}</h1>
+<h2>{{conteudo}}</h2> --}}
+
+<h1>Postagens</h1>
+{{#if arrayPostagens.length}}
+    <ul>
+        {{#each arrayPostagens}}
+        <li>
+            <h2>{{titulo}}</h2>
+            <h2>{{conteudo}}</h2>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+        <p>Não há postagens</p>
+    {{/if}}

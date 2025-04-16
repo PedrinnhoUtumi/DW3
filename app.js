@@ -11,6 +11,8 @@ app.set('views', './views')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+let arrayPostagens = []
+
 app.get('/', (req, res) => {
     res.send(`  
         <!DOCTYPE html>
@@ -37,7 +39,12 @@ app.post('/cadastrarPostagem', (req, res) => {
     // console.log(req.body.titulo)
     // console.log(req.body.conteudo)
     // res.send('mensagem recebida')
-    res.render('postagens', {titulo: req.body.titulo, conteudo: req.body.conteudo})
+    arrayPostagens.push({titulo: req.body.titulo, conteudo: req.body.conteudo})
+    res.render('postagens', {arrayPostagens})
+})
+
+app.get('/postagens', (req, res) => {
+    res.render('postagens', {arrayPostagens})
 })
 
 app.get('/isbn/:isbn', (req, res) => {
