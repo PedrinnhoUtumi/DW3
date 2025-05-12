@@ -36,9 +36,6 @@ app.get('/formulario', (req, res) => {
 })
 
 app.post('/cadastrarPostagem', (req, res) => {
-    // console.log(req.body.titulo)
-    // console.log(req.body.conteudo)
-    // res.send('mensagem recebida')
     arrayPostagens.push({titulo: req.body.titulo, conteudo: req.body.conteudo})
     res.render('postagens', {arrayPostagens})
 })
@@ -101,6 +98,31 @@ app.get('/ddd/:ddd', (req, res) => {
         .catch(error => {
             res.send("Algo deu erro")
         })
+})
+
+const feriados = [
+    ['Confraternização Universal: Ano Novo'],
+    ['Carnaval'],
+    ['Padroeira de CM'],
+    ['Páscoa'],
+    ['Dia Mundial do Trabalho'],
+    ['Corpus Christi'],
+    [],
+    [],
+    ['Independência'],
+    ["Aniversário Saraaaaaaaaaa"],
+    ["Aniversário Pedrooooooooooo"],
+    ["Natal"],
+]
+
+app.get('/feriado', (req, res) => {
+    const mes = req.query.mes
+   
+    if (mes > 12 || mes < 1) {
+        return res.send("Erro: Mês inválido")
+    }
+
+    res.send(feriados[mes - 1])
 })
 
 app.listen(porta, () => {
