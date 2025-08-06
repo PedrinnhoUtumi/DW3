@@ -1,0 +1,14 @@
+### Variáveis
+@url = http://localhost:8086/ 
+
+### Requisição GET
+GET {{{url}}
+
+### Requisição POST
+POST {{url}}/contato
+Content-Type: application/json
+{
+    "nome": "Pedro Sara",
+    "email": "PedroSara@gmail.com",
+    "telefone": "(44) 9 9707-9169",
+}
