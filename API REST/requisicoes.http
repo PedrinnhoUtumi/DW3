@@ -1,8 +1,14 @@
 ### Variáveis
-@url = http://localhost:8086/ 
+@url = http://localhost:8086
 
 ### Requisição GET
-GET {{{url}}
+GET {{url}}
+
+### Requisição GET
+GET {{url}}/contato
+
+### Requisição GET
+GET {{url}}/contato/1
 
 ### Requisição POST
 POST {{url}}/contato
