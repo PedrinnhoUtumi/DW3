@@ -5,7 +5,7 @@ const app = express()
 const port = 8086
 
 app.use(express.json())
-app.use(contato)
+app.use('/contato', contato)
 
 app.get("/", (req, res) => {
     res.send("Hello Sara")

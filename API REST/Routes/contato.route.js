@@ -1,9 +1,12 @@
 import express from "express"
-import { getContatos, getContatoByID } from "../controller/contato.controller.js"
+import { getContatos, getContatoByID, createContato, updateContato, deleteContato } from "../controller/contato.controller.js"
 const router = express.Router()
 
-router.get("/contato", getContatos)
-router.get("/contato/:id", getContatoByID)
+router.get("/", getContatos)
+router.get("/:id", getContatoByID)
+router.post('/', createContato)
+router.put('/:id', updateContato)
+router.delete('/:id', deleteContato)
 // router.post("/contato", (req, res) => {
 //     res.send("contato Sara")
 // })
